@@ -60,6 +60,7 @@ RTL content also affects the direction in which some icons and images are displa
 * Checkmark icons
 * Question mark icons
 * Video/audio player controls
+* Product logos
 
 #### How
 The most common way is:
