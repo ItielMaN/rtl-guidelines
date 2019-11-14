@@ -15,6 +15,8 @@ When a UI is mirrored, these changes occur:
 * Icons that communicate direction, like arrows, are mirrored
 * Text is usually aligned to the right
 
+In CSS, while it's possible to apply a rule for LTR and a separate one specifically for RTL, it's usually better to use CSS Logical Properties which provide the ability to control layout through logical, rather than physical mappings.
+
 Do | Don't do
 -- | --------
 `margin-inline-start: 5px;` | `margin-left: 5px;`
@@ -23,7 +25,7 @@ Do | Don't do
 `inset-inline-start: 5px;` | `left: 5px;`
 `border-inline-end: 1px;` | `border-right: 1px;`
 `padding: 1px 2px;` | `padding: 1px 2px 1px 2px;`
-`padding-block: 1px 3px;`  && `padding-inline: 4px 2px;` | `padding: 1px 2px 3px 4px;`
+`margin-block: 1px 3px;`  && `margin-inline: 4px 2px;` | `margin: 1px 2px 3px 4px;`
 `text-align: start;`  or `text-align: match-parent;`, depends on the context | `text-align: left;`
 
 When there is no special RTL-aware property available, use the pseudo `:-moz-locale-dir(ltr|rtl)` (for XUL files) or `:dir(ltr|rtl)` (for HTML files). For example, this rule:
@@ -49,7 +51,7 @@ RTL content also affects the direction in which some icons and images are displa
 * Icons that imply text direction, like [readerMode.svg](https://searchfox.org/mozilla-central/rev/74cc0f4dce444fe0757e2a6b8307d19e4d0e0212/browser/themes/shared/reader/readerMode.svg)
 * Icons that imply location of UI elements in the screen, like [sidebars-right.svg](https://searchfox.org/mozilla-central/rev/74cc0f4dce444fe0757e2a6b8307d19e4d0e0212/browser/themes/shared/icons/sidebars-right.svg), [open-in-new.svg](https://searchfox.org/mozilla-central/rev/74cc0f4dce444fe0757e2a6b8307d19e4d0e0212/browser/themes/shared/icons/open-in-new.svg) or [pane-collapse.svg](https://searchfox.org/mozilla-central/rev/74cc0f4dce444fe0757e2a6b8307d19e4d0e0212/devtools/client/debugger/images/pane-collapse.svg)
 * Icons representing objects that are meant to be handheld should look like they're being right-handed, like the [magnifying glass icon](https://searchfox.org/mozilla-central/rev/e7c61f4a68b974d5fecd216dc7407b631a24eb8f/toolkit/themes/windows/global/icons/search-textbox.svg)
-* Twisties in collapsed state, in RTL context only
+* Twisties in collapsed state (in RTL context only)
 
 #### What NOT to mirror
 * Text/numbers
@@ -61,6 +63,8 @@ RTL content also affects the direction in which some icons and images are displa
 * Question mark icons
 * Video/audio player controls
 * Product logos
+* Order of size dimensions (e.g. `1920x1080` should not be `1080x1920`)
+* Order of size units (e.g. `10 px` should not be `px 10` (unless the size unit is localizable))
 
 #### How
 The most common way is:
