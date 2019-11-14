@@ -72,21 +72,21 @@ The most common way is:
 * Icons representing objects that are meant to be handheld should look like they're being right-handed, like the [magnifying glass icon](https://searchfox.org/mozilla-central/rev/e7c61f4a68b974d5fecd216dc7407b631a24eb8f/toolkit/themes/windows/global/icons/search-textbox.svg)
 * Twisties in collapsed state, in RTL context only
 
-
 #### What NOT to mirror
 * Text/numbers
 * Icons with text/numbers
 * Icons/animations that are direction neutral
 * Icons depicting the passage of time, like clock
 * Icons that wouldn't look differently if they'd be mirrored, like X buttons or the bookmark star icon
-* Icons that should look the same as LTR, like icons related to code (which is always LTR) like https://searchfox.org/mozilla-central/rev/74cc0f4dce444fe0757e2a6b8307d19e4d0e0212/devtools/client/themes/images/tool-webconsole.svg
+* Icons that should look the same as LTR, like icons related to code (which is always LTR) like [tool-webconsole.svg](https://searchfox.org/mozilla-central/rev/74cc0f4dce444fe0757e2a6b8307d19e4d0e0212/devtools/client/themes/images/tool-webconsole.svg)
 * Checkmark icons
 * Question mark icons
 * Video player controls
+  * Some user interfaces never change. Video/audio players had a triangle shaped “Play” button pointing to the right side, fast forward as two triangles pointing to the right etc. The icons got their style back from the magnetic tapes, where cassettes were always playing this way, so if the magnetic tape was only on the right reel, you had to rewind it back to the beginning or switch sides.
 
 ### How to spot RTL issues
 
-1. Punctuation marks should appear on the left side of a word/sentence/paragraph on RTL, so if a localizable string appears in the UI with a dot, colon, ellipsis, question or exclamation mark on the right side, this probably means that the text field is forced to be displayed as LTR.
+1. Punctuation marks should appear on the left side of a word/sentence/paragraph on RTL, so if a *localizable* string appears in the UI with a dot, colon, ellipsis, question or exclamation mark on the right side of the text, this probably means that the text field is forced to be displayed as LTR.
 2. If checkmarks/icons do not appear on the opposite side of text, when compared to LTR
 3. If buttons (like the close button, "OK" and "Cancel" etc.) do not appear on the opposite side of the UI, when compared to LTR
 4. If paddings/margins/borders are not the same from the opposite side, when compared to LTR
@@ -96,13 +96,13 @@ The most common way is:
 ### Exceptions
 
 There are some elements that should be hardcoded to LTR, like:
-- Paths
-- Full URLs
-- Code and code containers (like the inspector or the CSS rules panel)
-- about:config preference names and values
-- Telephone numbers
-- Usernames & passwords (most of the time)
-- Other text fields where only LTR text is expected
+* Paths
+* Full URLs
+* Code and code containers (like the inspector or the CSS rules panel)
+* about:config preference names and values
+* Telephone numbers
+* Usernames & passwords (most of the time)
+* Other text fields where only LTR text is expected
 
 For such elements it's better to use left/right properties (instead of logical properties), since the direction is always determined.
 A dedicated RTL rule would still be required to align the element to the correct side, if the containing element is in RTL context. See [bug 1577271](https://bugzilla.mozilla.org/show_bug.cgi?id=1577271) for example.
