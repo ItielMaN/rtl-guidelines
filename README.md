@@ -92,6 +92,7 @@ To test for RTL layouts in Firefox, you can go to about:config and set `intl.uid
 The Firefox UI should immediately flip, but a restart may be required to take effect in some Firefox features and interactions.
 
 When testing with a left-to-right locale build, you may see some oddities regarding text ordering due to the nature of displaying LTR text in RTL layout.
+
 ![about:protections RTL - English vs. Hebrew](https://github.com/ItielMaN/rtl-guidelines/blob/master/about-protections-rtl.png)
 
 This is not an issue when using an actual RTL build.
