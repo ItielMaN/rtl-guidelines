@@ -68,14 +68,14 @@ RTL content also affects the direction in which some icons and images are displa
 * Order of size units (e.g. `10 px` should not be `px 10` (unless the size unit is localizable))
 
 #### How
-The most common way is:
+The most common way is by flipping the X axis:
 
 `transform: scaleX(-1);`
 
 ### Exceptions
 
 There are some elements that should be hardcoded to LTR, like:
-* Paths
+* Paths e.g. C:\Users\username\Desktop
 * Full URLs
 * Code and code containers (like the inspector or the CSS rules panel)
 * about:config preference names and values
@@ -83,8 +83,11 @@ There are some elements that should be hardcoded to LTR, like:
 * Usernames & passwords (most of the time)
 * Other text fields where only LTR text is expected
 
-For such elements it's better to use left/right properties (instead of logical properties), since the direction is always determined.
-A dedicated RTL rule would still be required to align the element to the correct side, if the containing element is in RTL context. See [bug 1577271](https://bugzilla.mozilla.org/show_bug.cgi?id=1577271) for example.
+For such elements it's better to use CSS left/right properties (instead of logical properties), since the direction is always determined.
+
+A dedicated RTL rule would still be required to align the element to the correct side, if the containing element is in RTL context. For example, in the following screenshot both text fields (username and password) should be LTR, thus start/end properties will do the opposite effect if we want the textboxes to be nicely aligned to the right.
+
+![about:logins textboxes](https://github.com/ItielMaN/rtl-guidelines/blob/master/about-logins-rtl.png)
 
 ### Testing
 
