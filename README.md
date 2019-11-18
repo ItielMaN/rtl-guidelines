@@ -32,11 +32,12 @@ Do | Don't do
 When there is no special RTL-aware property available, use the pseudo `:-moz-locale-dir(rtl)` (for XUL files) or `:dir(rtl)` (for HTML files). For example, this rule covers LTR:
 ```css
 .search-box {
-  background-position: 7px center
+  background-image: url(chrome://path/to/searchicon.svg);
+  background-position: 7px center;
 }
 ```
 
-but an additional rule is necessary to cover RTL and place the icon on the right:
+but an additional rule is necessary to cover RTL and place the search icon on the right:
 ```css
 .search-box:dir(rtl) {
   background-position-x: right 7px;
