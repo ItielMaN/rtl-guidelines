@@ -113,7 +113,7 @@ This is not an issue when using an actual RTL build.
 
 * [RTL Best Practices](https://docs.google.com/document/d/1Rc8rvwsLI06xArFQouTinSh3wNte9Sqn9KWi1r7xY4Y/edit#heading=h.pw54h41h12ct)
 * Building RTL-Aware Web Apps & Websites: [Part 1](https://hacks.mozilla.org/2015/09/building-rtl-aware-web-apps-and-websites-part-1/), [Part 2](https://hacks.mozilla.org/2015/09/building-rtl-aware-web-apps-and-websites-part-1/)
-* \<link to the PDF>
+* \<link to Paris Workshop 2017 RTL guide.pdf>
 
 ### Credits
 
