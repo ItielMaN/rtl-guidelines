@@ -24,11 +24,12 @@ Do | Don't do
 `float: inline-start;` | `float: left;`
 `inset-inline-start: 5px;` | `left: 5px;`
 `border-inline-end: 1px;` | `border-right: 1px;`
+`border-{start/end}-{start/end}-radius: 2px;` | `border-{top/bottom}-{left/right}-radius: 2px;`
 `padding: 1px 2px;` | `padding: 1px 2px 1px 2px;`
-`margin-block: 1px 3px;`  && `margin-inline: 4px 2px;` | `margin: 1px 2px 3px 4px;`
-`text-align: start;`  or `text-align: match-parent;`, depends on the context | `text-align: left;`
+`margin-block: 1px 3px;` && `margin-inline: 4px 2px;` | `margin: 1px 2px 3px 4px;`
+`text-align: start;` or `text-align: match-parent;` (depends on the context) | `text-align: left;`
 
-When there is no special RTL-aware property available, use the pseudo `:-moz-locale-dir(ltr|rtl)` (for XUL files) or `:dir(ltr|rtl)` (for HTML files). For example, this rule:
+When there is no special RTL-aware property available, use the pseudo `:-moz-locale-dir(rtl)` (for XUL files) or `:dir(rtl)` (for HTML files). For example, this rule:
 ```css
 .search-box {
   background-position: 7px center
@@ -90,7 +91,9 @@ A dedicated RTL rule would still be required to align the element to the correct
 To test for RTL layouts in Firefox, you can go to about:config and set `intl.uidirection` to `1`.
 The Firefox UI should immediately flip, but a restart may be required to take effect in some Firefox features and interactions.
 
-When testing with a left-to-right locale build, some text may be [displayed backwards](https://bugzilla.mozilla.org/show_bug.cgi?id=1576608#c15). This is not an issue when using an actual RTL build.
+When testing with a left-to-right locale build, you may see some oddities regarding text ordering due to the nature of displaying LTR text in RTL layout.
+
+This is not an issue when using an actual RTL build.
 
 #### How to spot RTL issues
 
