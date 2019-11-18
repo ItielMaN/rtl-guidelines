@@ -29,14 +29,14 @@ Do | Don't do
 `margin-block: 1px 3px;` && `margin-inline: 4px 2px;` | `margin: 1px 2px 3px 4px;`
 `text-align: start;` or `text-align: match-parent;` (depends on the context) | `text-align: left;`
 
-When there is no special RTL-aware property available, use the pseudo `:-moz-locale-dir(rtl)` (for XUL files) or `:dir(rtl)` (for HTML files). For example, this rule:
+When there is no special RTL-aware property available, use the pseudo `:-moz-locale-dir(rtl)` (for XUL files) or `:dir(rtl)` (for HTML files). For example, this rule covers LTR:
 ```css
 .search-box {
   background-position: 7px center
 }
 ```
 
-covers LTR. An additional rule is necessary to cover RTL and place the icon on the right:
+but an additional rule is necessary to cover RTL and place the icon on the right:
 ```css
 .search-box:dir(rtl) {
   background-position-x: right 7px;
@@ -61,11 +61,10 @@ RTL content also affects the direction in which some icons and images are displa
 * Icons that wouldn't look differently if they'd be mirrored, like X buttons or the bookmark star icon
 * Icons that should look the same as LTR, like icons related to code (which is always LTR) like [tool-webconsole.svg](https://searchfox.org/mozilla-central/rev/74cc0f4dce444fe0757e2a6b8307d19e4d0e0212/devtools/client/themes/images/tool-webconsole.svg)
 * Checkmark icons
-* Question mark icons
 * Video/audio player controls
 * Product logos
-* Order of size dimensions (e.g. `1920x1080` should not be `1080x1920`)
-* Order of size units (e.g. `10 px` should not be `px 10` (unless the size unit is localizable))
+* Order of size dimensions (e.g. `1920x1080` should not become `1080x1920`)
+* Order of size units (e.g. `10 px` should not become `px 10` (unless the size unit is localizable))
 
 #### How
 The most common way is by flipping the X axis:
@@ -74,7 +73,7 @@ The most common way is by flipping the X axis:
 
 ### Exceptions
 
-There are some elements that should be hardcoded to LTR, like:
+There are some elements that should look like they would in LTR:
 * Paths e.g. C:\Users\username\Desktop
 * Full URLs
 * Code and code containers (like the inspector or the CSS rules panel)
@@ -108,3 +107,13 @@ This is not an issue when using an actual RTL build.
 4. If paddings/margins/borders are not the same from the opposite side, when compared to LTR
 5. If navigating in the UI using the left/right arrow keys does not select the correct element (i.e. pressing Left selects an item on the right)
 6. If navigating in the UI using the Tab key does not focus elements from right to left
+
+### See Also
+
+* [RTL Best Practices](https://docs.google.com/document/d/1Rc8rvwsLI06xArFQouTinSh3wNte9Sqn9KWi1r7xY4Y/edit#heading=h.pw54h41h12ct)
+* Building RTL-Aware Web Apps & Websites: [Part 1](https://hacks.mozilla.org/2015/09/building-rtl-aware-web-apps-and-websites-part-1/), [Part 2](https://hacks.mozilla.org/2015/09/building-rtl-aware-web-apps-and-websites-part-1/)
+* \<link to the PDF>
+
+### Credits
+
+[Google's Material Design guide for RTL](https://material.io/design/usability/bidirectionality.html)
